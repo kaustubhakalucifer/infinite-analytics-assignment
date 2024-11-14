@@ -1,0 +1,108 @@
+.mat-toolbar {
+  background-color: #3271b9;
+}
+
+.app-name {
+  font-family: "Nunito", sans-serif;
+  font-size: 20px;
+  margin-left: 5px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.user-logo {
+  height: 26px;
+  margin-right: 6px;
+}
+
+.btn-span {
+  color: #fff !important;
+}
+
+button {
+  display: flex;
+}
+
+.drawer-container {
+  width: 100%;
+  height: calc(100vh - 64px);
+  background-color: #fff;
+}
+
+.drawer {
+  width: 200px;
+}
+
+.nav-list {
+  padding: 0 10px;
+}
+
+.nav-item {
+  width: 100%;
+}
+
+.nav-link {
+  margin-top: 8px;
+  font-size: 15px;
+  border-radius: 10px;
+  height: 35px !important;
+}
+
+.nav-link:hover {
+  background-color: #96bae2;
+  color: #fff !important;
+  border-radius: 10px;
+}
+
+.active {
+  background-color: #96bae2 !important;
+  // color: #fff;
+  border-radius: 10px;
+}
+
+.margin-icon {
+  margin-right: 5px;
+  font-size: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+:host ::ng-deep .mat-drawer-side {
+  border-right: 1px solid #b0b0b0 !important;
+}
+
+.text {
+  font-size: 14px;
+  font-family: "Figtree", sans-serif;
+  font-weight: 600;
+}
+
+.active-text {
+  color: #fff;
+}
+
+.content {
+  padding: 20px;
+}
+
+:host ::ng-deep .mat-divider {
+  margin: 8px 0 !important;
+}
+
+:host ::ng-deep .mdc-list-item__primary-text {
+  display: flex;
+  align-items: center;
+}
+
+.header-logo {
+  width: 3%;
+}
+
+.content {
+  padding: 20px;
+}

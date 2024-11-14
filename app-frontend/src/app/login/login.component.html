@@ -1,0 +1,198 @@
+<div class="main-container">
+  <div class="left-container">
+    <!-- <div id="slideshow"></div> -->
+    <img
+      src="/assets/images/background.jpg"
+      class="background-image"
+      alt="background-image"
+    />
+    <div class="top-outer-circle"></div>
+    <div class="top-inner-circle"></div>
+    <div class="left-top">
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <br />
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <br />
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <br />
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <br />
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <br />
+    </div>
+    <div class="right-bottom">
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <br />
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <br />
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <br />
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <br />
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <br />
+    </div>
+    <div class="header-container">
+      <span class="header">Infinite Analytics</span><br />
+      <span class="header subheader">Assignment</span>
+      <div class="row">
+        <div class="section">
+          <div class="image-div">
+            <img
+              src="/assets/images/right-arrow.png"
+              alt="outward payment"
+              class="feature_image"
+            />
+          </div>
+          <span class="feature-text">Google Auth SignUp / SignIn</span>
+        </div>
+        <div class="section">
+          <div class="image-div">
+            <img
+              src="/assets/images/right-arrow.png"
+              alt="reconcilation"
+              class="feature_image"
+            />
+          </div>
+          <span class="feature-text">Facebook Auth SignUp / SignIn</span>
+        </div>
+        <div class="section">
+          <div class="image-div">
+            <img
+              src="/assets/images/right-arrow.png"
+              alt="reconcilation"
+              class="feature_image"
+            />
+          </div>
+          <span class="feature-text">Coin details with detailed view</span>
+        </div>
+        <div class="section">
+          <div class="image-div">
+            <img
+              src="/assets/images/right-arrow.png"
+              alt="reconcilation"
+              class="feature_image"
+            />
+          </div>
+          <span class="feature-text">Weather App built in</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="right-container">
+    <div class="main-form">
+      <div class="login-name">
+        <span class="login">SIGN-IN</span>
+      </div>
+      <form [formGroup]="loginFormGroup">
+        <div class="row">
+          <div class="form-group">
+            <label for="emailAddress" class="required">Email Address</label>
+            <input
+              id="emailAddress"
+              type="email"
+              class="form-control"
+              placeholder="Enter your email address"
+              formControlName="emailAddress"
+              [ngClass]="{
+                'is-invalid':
+                  loginFormGroup.controls.emailAddress.hasError('required') &&
+                  loginButtonClicked
+              }"
+            />
+            <div class="invalid-feedback text-style">Email ID is required</div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group">
+            <label for="password" class="required">Password</label>
+            <input
+              id="password"
+              type="password"
+              class="form-control"
+              placeholder="Enter your password"
+              formControlName="password"
+              [ngClass]="{
+                'is-invalid':
+                  loginFormGroup.controls.password.hasError('required') &&
+                  loginButtonClicked
+              }"
+            />
+            <div class="invalid-feedback text-style">Password is required</div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="login-btn" id="login-btn">
+            <button class="login-button" type="submit">SIGN-IN</button>
+          </div>
+          <div class="login-spinner" id="login-spinner">
+            <!-- <mat-spinner [diameter]="45"></mat-spinner> -->
+          </div>
+        </div>
+        <hr />
+      </form>
+      <div class="row">
+        <div class="or-label">
+          <span class="login">You can also sign-in using</span>
+        </div>
+      </div>
+      <div class="alternate-container">
+        <button class="social-button google" (click)="loginWithGoogle()">
+          <img
+            src="https://webimages.mongodb.com/_com_assets/cms/kr6fvgdym4qzsgqo3-Google%20Icon.svg?auto=format%252Ccompress"
+            alt="Google Logo"
+          />
+          <span>Google</span>
+        </button>
+        <!-- <span class="or-span">OR</span>
+        <button class="social-button facebook">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Facebook_f_logo_%282019%29.svg/1200px-Facebook_f_logo_%282019%29.svg.png"
+            alt="Facebook Logo"
+          />
+          <span>Facebook</span>
+        </button> -->
+      </div>
+    </div>
+  </div>
+</div>

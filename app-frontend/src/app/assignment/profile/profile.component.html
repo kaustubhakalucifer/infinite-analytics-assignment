@@ -1,0 +1,64 @@
+<div class="profile-container">
+  <div class="profile-header">
+    <h2>My Profile</h2>
+    <button *ngIf="!isEditing" class="edit-button" (click)="toggleEdit()">
+      Edit Profile
+    </button>
+    <button *ngIf="isEditing" class="cancel-button" (click)="toggleEdit()">
+      Cancel
+    </button>
+  </div>
+
+  <div class="profile-picture">
+    <img [src]="user.photo || defaultPhotoUrl" alt="Profile Picture" />
+    <br /><br /><br />
+    <span *ngIf="isEditing">Enter image URL: </span>
+    <input
+      *ngIf="isEditing"
+      type="text"
+      placeholder="Image URL"
+      [(ngModel)]="user.photo"
+    />
+  </div>
+
+  <form class="profile-form" (ngSubmit)="onSave()">
+    <label>
+      Name:
+      <input [(ngModel)]="user.name" [disabled]="!isEditing" name="name" />
+    </label>
+    <label>
+      Bio:
+      <textarea
+        [(ngModel)]="user.bio"
+        [disabled]="!isEditing"
+        name="bio"
+      ></textarea>
+    </label>
+    <label>
+      Phone:
+      <input
+        [(ngModel)]="user.phone"
+        [disabled]="!isEditing"
+        name="phone"
+        type="tel"
+      />
+    </label>
+    <label>
+      Email:
+      <input
+        [(ngModel)]="user.email"
+        [disabled]="true"
+        name="email"
+        type="email"
+      />
+    </label>
+    <label *ngIf="isEditing">
+      Password:
+      <input [(ngModel)]="user.password" name="password" type="password" />
+    </label>
+
+    <div class="button-group" *ngIf="isEditing">
+      <button type="submit" class="save-button">Save Changes</button>
+    </div>
+  </form>
+</div>

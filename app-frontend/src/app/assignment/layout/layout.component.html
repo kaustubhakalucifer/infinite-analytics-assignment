@@ -1,0 +1,50 @@
+<mat-toolbar>
+  <span class="app-name">Infinite Analytics Assignment</span>
+  <span class="example-spacer"></span>
+  <a mat-button class="btn-span"
+    ><img
+      matbuttonicon
+      src="/assets/images/user.png"
+      alt="user-image"
+      class="user-logo"
+    />{{ email }}</a
+  >
+  <a mat-button class="btn-span" (click)="logout()"
+    ><img
+      matbuttonicon
+      src="/assets/images/logout.png"
+      alt="user-image"
+      class="user-logo"
+    />Logout</a
+  >
+</mat-toolbar>
+<mat-drawer-container class="drawer-container">
+  <mat-drawer #drawer [mode]="'side'" opened class="drawer">
+    <mat-nav-list class="nav-list">
+      <div class="nav-item">
+        <a mat-list-item class="nav-link">
+          <mat-icon class="margin-icon">account_circle</mat-icon>
+          <span class="text">Profile Details</span>
+        </a>
+      </div>
+      <mat-divider> </mat-divider>
+      <div class="nav-item">
+        <a mat-list-item class="nav-link">
+          <mat-icon class="margin-icon">paid</mat-icon>
+          <span class="text">Crypto currency</span>
+        </a>
+      </div>
+      <mat-divider> </mat-divider>
+      <div class="nav-item">
+        <a mat-list-item class="nav-link">
+          <mat-icon class="margin-icon">cloud</mat-icon>
+          <span class="text">Weather</span>
+        </a>
+      </div>
+      <mat-divider> </mat-divider>
+    </mat-nav-list>
+  </mat-drawer>
+  <mat-drawer-content class="content mat-app-background">
+    <router-outlet></router-outlet>
+  </mat-drawer-content>
+</mat-drawer-container>

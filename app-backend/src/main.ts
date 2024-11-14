@@ -1,14 +1,25 @@
+import {
+  initializePassportStrategies,
+  setupMiddlewares,
+  setupRoutes,
+} from './app';
+import { connectMongoDatabase } from './database';
 import express from 'express';
+import { env } from './env';
+import { logger } from './logger';
 
-const host = process.env.HOST ?? 'localhost';
-const port = process.env.PORT ? Number(process.env.PORT) : 3000;
-
-const app = express();
-
-app.get('/', (req, res) => {
-  res.send({ message: 'Hello API' });
-});
-
-app.listen(port, host, () => {
-  console.log(`[ ready ] http://${host}:${port}`);
-});
+connectMongoDatabase()
+  .then(() => {
+    const app = express();
+    setupMiddlewares(app);
+    initializePassportStrategies();
+    setupRoutes(app);
+    app.listen(env.app.port, () => {
+      logger.info(
+        `--- [ ${env.app.name} is listening on port ${env.app.port} in ${env.currentNodeEnv} mode! ] ---`
+      );
+    });
+  })
+  .catch((err) => {
+    logger.error(`${JSON.stringify(err)}`);
+  });
