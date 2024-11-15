@@ -23,6 +23,14 @@ async function login(req: Request, res: Response): Promise<void> {
     });
     return;
   }
+  if (!findUser.password) {
+    res.status(404).json({
+      status: false,
+      statusCode: 404,
+      message: 'Invalid email address / password',
+    });
+    return;
+  }
 
   if (!(await compare(password, findUser.password))) {
     res.status(404).json({

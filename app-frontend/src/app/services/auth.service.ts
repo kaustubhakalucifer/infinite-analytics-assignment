@@ -33,4 +33,22 @@ export class AuthService {
         this._router.navigate(['/login']);
       });
   }
+
+  public loginService(data: {
+    emailAddress: string;
+    password: string;
+  }): Observable<any> {
+    return this._http.post(`${environment.serverUrl}/login`, data, {
+      withCredentials: true,
+    });
+  }
+
+  public registerService(data: {
+    emailAddress: string;
+    password: string;
+  }): Observable<any> {
+    return this._http.post(`${environment.serverUrl}/register`, data, {
+      withCredentials: true,
+    });
+  }
 }

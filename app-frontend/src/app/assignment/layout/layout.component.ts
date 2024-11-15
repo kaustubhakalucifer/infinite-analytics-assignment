@@ -6,7 +6,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatDividerModule } from '@angular/material/divider';
 import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
+import { Router, RouterModule, RouterOutlet } from '@angular/router';
 import { UserService } from '../../services/user.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { AuthService } from '../../services/auth.service';
@@ -23,24 +23,27 @@ import { AuthService } from '../../services/auth.service';
     MatDividerModule,
     CommonModule,
     RouterOutlet,
+    RouterModule,
   ],
   templateUrl: './layout.component.html',
   styleUrl: './layout.component.scss',
 })
 export class LayoutComponent {
   public email = '';
+  public currentActiveRoute = '';
 
   constructor(
     private _userService: UserService,
-    private _authService: AuthService
+    private _authService: AuthService,
+    private _router: Router
   ) {
+    this.currentActiveRoute = _router.url;
     this.loadUserData();
   }
 
   loadUserData() {
     this._userService.getUserData().subscribe({
       next: (response) => {
-        console.log(response);
         this.email = response['data']['emailAddress'];
       },
       error: (error: HttpErrorResponse) => {
@@ -51,5 +54,9 @@ export class LayoutComponent {
 
   logout() {
     this._authService.logout();
+  }
+
+  public sidenavRouting(router: string): void {
+    this.currentActiveRoute = router;
   }
 }

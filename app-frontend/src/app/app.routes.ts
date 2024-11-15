@@ -5,11 +5,16 @@ import { AuthGuard } from './guard/auth.guard';
 import { ProfileComponent } from './assignment/profile/profile.component';
 import { CryptoComponent } from './assignment/crypto/crypto.component';
 import { WeatherComponent } from './assignment/weather/weather.component';
+import { RegisterComponent } from './register/register.component';
 
 export const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent,
+  },
+  {
+    path: 'register',
+    component: RegisterComponent,
   },
   {
     path: 'assignment',

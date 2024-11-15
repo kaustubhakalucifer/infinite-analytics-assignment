@@ -112,9 +112,9 @@
   <div class="right-container">
     <div class="main-form">
       <div class="login-name">
-        <span class="login">SIGN-IN</span>
+        <span class="login">SIGN-UP</span>
       </div>
-      <form [formGroup]="loginFormGroup">
+      <form [formGroup]="registerFormGroup">
         <div class="row">
           <div class="form-group">
             <label for="emailAddress" class="required">Email Address</label>
@@ -126,8 +126,9 @@
               formControlName="emailAddress"
               [ngClass]="{
                 'is-invalid':
-                  loginFormGroup.controls.emailAddress.hasError('required') &&
-                  loginButtonClicked
+                  registerFormGroup.controls.emailAddress.hasError(
+                    'required'
+                  ) && registerButtonClicked
               }"
             />
             <div class="invalid-feedback text-style">Email ID is required</div>
@@ -144,24 +145,24 @@
               formControlName="password"
               [ngClass]="{
                 'is-invalid':
-                  loginFormGroup.controls.password.hasError('required') &&
-                  loginButtonClicked
+                  registerFormGroup.controls.password.hasError('required') &&
+                  registerButtonClicked
               }"
             />
             <div class="invalid-feedback text-style">Password is required</div>
           </div>
         </div>
         <div class="row">
-          <div class="forgot-password">
-            <span class="forgot-password-text" [routerLink]="'/register'"
-              >Don't have an account ? Click here to register</span
+          <div class="forgot-password" [routerLink]="'/login'">
+            <span class="forgot-password-text"
+              >Already registered ? Click here to login</span
             >
           </div>
         </div>
         <div class="row">
           <div class="login-btn" id="login-btn">
-            <button class="login-button" type="submit" (click)="login()">
-              SIGN-IN
+            <button class="login-button" type="submit" (click)="register()">
+              SIGN-UP
             </button>
           </div>
           <div class="login-spinner" id="login-spinner">
@@ -184,13 +185,13 @@
           <span>Google</span>
         </button>
         <!-- <span class="or-span">OR</span>
-        <button class="social-button facebook">
-          <img
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Facebook_f_logo_%282019%29.svg/1200px-Facebook_f_logo_%282019%29.svg.png"
-            alt="Facebook Logo"
-          />
-          <span>Facebook</span>
-        </button> -->
+          <button class="social-button facebook">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Facebook_f_logo_%282019%29.svg/1200px-Facebook_f_logo_%282019%29.svg.png"
+              alt="Facebook Logo"
+            />
+            <span>Facebook</span>
+          </button> -->
       </div>
     </div>
   </div>

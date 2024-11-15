@@ -22,21 +22,45 @@
   <mat-drawer #drawer [mode]="'side'" opened class="drawer">
     <mat-nav-list class="nav-list">
       <div class="nav-item">
-        <a mat-list-item class="nav-link">
+        <a
+          mat-list-item
+          class="nav-link"
+          (click)="sidenavRouting('/assignment/profile')"
+          [routerLink]="'/assignment/profile'"
+          [ngClass]="{
+            active: currentActiveRoute === '/assignment/profile'
+          }"
+        >
           <mat-icon class="margin-icon">account_circle</mat-icon>
           <span class="text">Profile Details</span>
         </a>
       </div>
       <mat-divider> </mat-divider>
       <div class="nav-item">
-        <a mat-list-item class="nav-link">
+        <a
+          mat-list-item
+          class="nav-link"
+          (click)="sidenavRouting('/assignment/crypto')"
+          [routerLink]="'/assignment/crypto'"
+          [ngClass]="{
+            active: currentActiveRoute === '/assignment/crypto'
+          }"
+        >
           <mat-icon class="margin-icon">paid</mat-icon>
           <span class="text">Crypto currency</span>
         </a>
       </div>
       <mat-divider> </mat-divider>
       <div class="nav-item">
-        <a mat-list-item class="nav-link">
+        <a
+          mat-list-item
+          class="nav-link"
+          (click)="sidenavRouting('/assignment/weather')"
+          [routerLink]="'/assignment/weather'"
+          [ngClass]="{
+            active: currentActiveRoute === '/assignment/weather'
+          }"
+        >
           <mat-icon class="margin-icon">cloud</mat-icon>
           <span class="text">Weather</span>
         </a>

@@ -31,7 +31,6 @@ export class ProfileComponent {
   loadUserData() {
     this.userService.getUserData().subscribe({
       next: (response) => {
-        console.log(response);
         this.user.email = response['data']['emailAddress'];
         this.user.photo = response['data']['photoUrl'];
         this.user.name = response['data']['name'];

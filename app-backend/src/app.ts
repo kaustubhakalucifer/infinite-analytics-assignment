@@ -76,6 +76,7 @@ function initializePassportStrategies(): void {
       },
       async (_accessToken, _refreshToken, profile, done) => {
         const email = profile.emails?.[0].value;
+        console.log(profile);
         if (email) {
           await validateAndUpdateUserDetails(email, {
             photoUrl: profile.photos[0].value,

@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import { userModel } from '../model';
+import { hash } from 'bcrypt';
 
 async function updateUserDetails(req: Request, res: Response): Promise<void> {
   try {
@@ -7,7 +8,14 @@ async function updateUserDetails(req: Request, res: Response): Promise<void> {
       req.body;
     const updatedUser = await userModel.findOneAndUpdate(
       { emailAddress: req.user['email'] },
-      { name, bio, emailAddress, password, photoUrl, mobileNumber },
+      {
+        name,
+        bio,
+        emailAddress,
+        password: await hash(password, 10),
+        photoUrl,
+        mobileNumber,
+      },
       { new: true, omitUndefined: true }
     );
 

@@ -10,7 +10,7 @@
   </div>
 
   <div class="profile-picture">
-    <img [src]="user.photo || defaultPhotoUrl" alt="Profile Picture" />
+    <img [src]="user.photo" alt="Profile Picture" />
     <br /><br /><br />
     <span *ngIf="isEditing">Enter image URL: </span>
     <input

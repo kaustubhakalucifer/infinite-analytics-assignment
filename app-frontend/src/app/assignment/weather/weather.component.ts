@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ChartData, ChartOptions, LabelItem } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
+import { WeatherService } from '../../services/weather.service';
 
 @Component({
   selector: 'app-weather',
@@ -47,19 +48,31 @@ export class WeatherComponent {
     api_info: { status: 'healthy' },
   };
 
-  constructor() {
-    this.stations = this.data.metadata.stations.map((station) => station.name);
-    this.createChartData();
+  constructor(private _weatherService: WeatherService) {
+    this.getWeatherData();
+  }
+
+  public getWeatherData() {
+    this._weatherService.getWeatherData().subscribe({
+      next: (response) => {
+        this.data = response;
+        this.stations = this.data.metadata.stations.map(
+          (station) => station.name
+        );
+        this.createChartData();
+        console.log(this.data);
+      },
+    });
   }
 
   stationColors = [
-    '#1E90FF', // Dodger Blue
-    '#4682B4', // Steel Blue
-    '#5F9EA0', // Cadet Blue
-    '#00BFFF', // Deep Sky Blue
-    '#ADD8E6', // Light Blue
-    '#87CEEB', // Sky Blue
-    '#4682B4', // Steel Blue
+    '#1E90FF',
+    '#4682B4',
+    '#5F9EA0',
+    '#00BFFF',
+    '#ADD8E6',
+    '#87CEEB',
+    '#4682B4',
   ];
 
   createChartData() {
