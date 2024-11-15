@@ -85,10 +85,10 @@ export class WeatherComponent {
       return {
         label: station,
         data: [stationReading ? stationReading.value : 0],
-        borderColor: this.stationColors[index], // Specific border color
-        backgroundColor: this.stationColors[index], // Specific fill color for bars
-        fill: true, // Fill the bars if bar chart
-        tension: 0.1, // This is ignored for bar charts, but useful for line charts
+        borderColor: this.stationColors[index],
+        backgroundColor: this.stationColors[index],
+        fill: true,
+        tension: 0.1,
       };
     });
 
