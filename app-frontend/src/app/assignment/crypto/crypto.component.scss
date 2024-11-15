@@ -1,0 +1,13 @@
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  padding: 16px;
+}
+
+.coin-card {
+  width: 300px;
+  font-family: "Nunito", sans-serif;
+  cursor: pointer;
+}

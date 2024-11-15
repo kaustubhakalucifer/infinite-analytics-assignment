@@ -1,0 +1,22 @@
+.coin-info {
+  margin: 20px;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.negative-trend {
+  color: red;
+}
+
+.positive-trend {
+  color: green;
+}
+
+canvas {
+  margin-top: 20px;
+}
+
+::ng-deep .no-scroll-dialog {
+  overflow: hidden !important;
+}

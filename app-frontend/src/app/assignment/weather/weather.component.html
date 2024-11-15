@@ -1,1 +1,13 @@
-<p>weather works!</p>
+<div>
+  <h2>Temperature Readings for Stations</h2>
+  <div class="chart-container">
+    <canvas
+      baseChart
+      [data]="chartData"
+      [options]="chartOptions"
+      [type]="'bar'"
+      [legend]="true"
+      [plugins]="[]"
+    ></canvas>
+  </div>
+</div>

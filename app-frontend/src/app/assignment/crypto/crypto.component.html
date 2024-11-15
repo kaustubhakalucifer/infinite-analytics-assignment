@@ -1,1 +1,28 @@
-<p>crypto works!</p>
+<div class="cards-container">
+  <mat-card
+    *ngFor="let coin of symbols"
+    class="coin-card"
+    [style.backgroundColor]="getBackgroundColor(coin['symbol'])"
+    (click)="openDetailDialog(coin['symbol'])"
+  >
+    <mat-card-header>
+      <mat-card-title
+        >{{ coin["baseAsset"] }} / {{ coin["quoteAsset"] }}</mat-card-title
+      >
+      <mat-card-subtitle>{{ coin["symbol"] }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <p>
+        Status: <strong>{{ coin["status"] }}</strong>
+      </p>
+      <p>
+        Spot Trading Allowed:
+        <strong>{{ coin["isSpotTradingAllowed"] ? "Yes" : "No" }}</strong>
+      </p>
+      <p>
+        Margin Trading Allowed:
+        <strong>{{ coin["isMarginTradingAllowed"] ? "Yes" : "No" }}</strong>
+      </p>
+    </mat-card-content>
+  </mat-card>
+</div>

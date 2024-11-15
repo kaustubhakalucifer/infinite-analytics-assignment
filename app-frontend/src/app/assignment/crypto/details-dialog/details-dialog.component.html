@@ -1,0 +1,24 @@
+<div class="coin-info">
+  <h2>{{ coinData.symbol }} - Current Status</h2>
+  <p><strong>Last Price:</strong> {{ coinData.lastPrice }} USD</p>
+  <p><strong>Price Change:</strong> {{ coinData.priceChange }} USD</p>
+  <p>
+    <strong>Price Change Percent:</strong> {{ coinData.priceChangePercent }}%
+  </p>
+  <p><strong>Open Price:</strong> {{ coinData.openPrice }} USD</p>
+  <p><strong>High Price:</strong> {{ coinData.highPrice }} USD</p>
+  <p><strong>Low Price:</strong> {{ coinData.lowPrice }} USD</p>
+
+  <div *ngIf="priceChangePercent < 0" class="negative-trend">
+    <p><strong>Trend:</strong> Negative ({{ priceChangePercent }}%)</p>
+  </div>
+  <div *ngIf="priceChangePercent >= 0" class="positive-trend">
+    <p><strong>Trend:</strong> Positive ({{ priceChangePercent }}%)</p>
+  </div>
+  <canvas
+    baseChart
+    [data]="chartData"
+    [options]="chartOptions"
+    chartType="line"
+  ></canvas>
+</div>
